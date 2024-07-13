@@ -18,13 +18,21 @@ repositories {
 }
 
 dependencies {
+// Security
+	implementation 'com.nimbusds:nimbus-jose-jwt:9.40'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.3.0'
+// Lombok
+	compileOnly 'org.projectlombok:lombok:1.18.32'
+	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+// Postgresql
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.3.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'
+// Springboot starter
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	runtimeOnly 'org.postgresql:postgresql'
+// Tests
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
