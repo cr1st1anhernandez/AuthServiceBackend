@@ -37,10 +37,15 @@ public class AuthServiceImpl implements IAuthService {
                 jwt.put("error", "User not registered!");
                 return jwt;
             }
+            Long userId = user.get().getId();
+            if (!userRepository.isUserActive(userId)) {
+                jwt.put("error", "User is inactive!");
+                return jwt;
+            }
             if (verifyPassword(loginRequest.getPassword(), user.get().getPassword())) {
                 jwt.put("jwt", jwtUtilityService.generateJWT(user.get().getId()));
             } else {
-                jwt.put("error", "Authentication failed");
+                jwt.put("error", "Invalid credentials");
             }
             return jwt;
         } catch (IllegalArgumentException e) {
