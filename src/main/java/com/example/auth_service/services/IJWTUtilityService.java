@@ -10,7 +10,7 @@ import java.text.ParseException;
 
 public interface IJWTUtilityService {
 
-    public String generateJWT(Integer subject) throws JOSEException, ParseException, JOSEException, IOException, NoSuchAlgorithmException, InvalidKeySpecException, JOSEException;
+    public String generateJWT(Long subject) throws JOSEException, ParseException, JOSEException, IOException, NoSuchAlgorithmException, InvalidKeySpecException, JOSEException;
 
     public JWTClaimsSet parseJWT(String jwt) throws ParseException, JOSEException, IOException, NoSuchAlgorithmException, InvalidKeySpecException;
 

@@ -36,7 +36,7 @@ public class JWTUtilityServiceImpl implements IJWTUtilityService {
     private Resource publicKeyResource;
 
     @Override
-    public String generateJWT(Integer userId) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, JOSEException {
+    public String generateJWT(Long userId) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException, JOSEException {
         PrivateKey privateKey = loadPrivateKey(privateKeyResource);
 
         JWSSigner signer = new RSASSASigner(privateKey);
